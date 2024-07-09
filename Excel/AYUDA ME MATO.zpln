@@ -1,0 +1,321 @@
+﻿{
+  "paragraphs": [
+    {
+      "user": "anonymous",
+      "progress": 0,
+      "config": {
+        "colWidth": 12,
+        "editorMode": "ace/mode/scala",
+        "fontSize": 9,
+        "results": {},
+        "enabled": true,
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        }
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "runtimeInfos": {
+        "jobUrl": {
+          "propertyName": "jobUrl",
+          "label": "SPARK JOB",
+          "tooltip": "View in Spark web UI",
+          "group": "spark",
+          "values": [
+            {
+              "jobUrl": "http://10.0.5.2:4040/jobs/job?id=0",
+              "$$hashKey": "object:924"
+            },
+            {
+              "jobUrl": "http://10.0.5.2:4040/jobs/job?id=1",
+              "$$hashKey": "object:925"
+            }
+          ],
+          "interpreterSettingId": "spark"
+        }
+      },
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1720498029693_900295132",
+      "id": "paragraph_1720498029693_900295132",
+      "dateCreated": "2024-07-09T04:07:09+0000",
+      "status": "FINISHED",
+      "focus": true,
+      "$$hashKey": "object:275",
+      "text": "val data = spark\n    .read\n    .option(\"inferSchema\", true)\n    .option(\"header\", \"true\")\n    .option(\"delimiter\", \";\")\n    .csv(\"/home/gitpod/maquina-Virtual-Linux/Excel/Consolidado-Nacional-2022-publico-1-web.csv\")",
+      "dateUpdated": "2024-07-09T04:13:02+0000",
+      "dateFinished": "2024-07-09T04:13:05+0000",
+      "dateStarted": "2024-07-09T04:13:02+0000",
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "\u001b[1m\u001b[34mdata\u001b[0m: \u001b[1m\u001b[32morg.apache.spark.sql.DataFrame\u001b[0m = [Nombre Comercial: string, Actividad: string ... 11 more fields]\n"
+          }
+        ]
+      }
+    },
+    {
+      "user": "anonymous",
+      "progress": 0,
+      "config": {
+        "colWidth": 12,
+        "editorMode": "ace/mode/scala",
+        "fontSize": 9,
+        "results": {},
+        "enabled": true,
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        }
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1720498305295_791744851",
+      "id": "paragraph_1720498305295_791744851",
+      "dateCreated": "2024-07-09T04:11:45+0000",
+      "status": "FINISHED",
+      "focus": true,
+      "$$hashKey": "object:738",
+      "text": "data.printSchema()",
+      "dateUpdated": "2024-07-09T04:13:51+0000",
+      "dateFinished": "2024-07-09T04:13:51+0000",
+      "dateStarted": "2024-07-09T04:13:51+0000",
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "root\n |-- Nombre Comercial: string (nullable = true)\n |-- Actividad: string (nullable = true)\n |-- Casificación: string (nullable = true)\n |-- Categoría: string (nullable = true)\n |-- Provincia: string (nullable = true)\n |-- Cantón: string (nullable = true)\n |-- Parroquia: string (nullable = true)\n |-- Referencia de Dirección: string (nullable = true)\n |-- Dirección: string (nullable = true)\n |-- Teléfono Principal: string (nullable = true)\n |-- Teléfono Secundario: string (nullable = true)\n |-- Correo Electrónico: string (nullable = true)\n |-- Dirección Web: string (nullable = true)\n\n"
+          }
+        ]
+      }
+    },
+    {
+      "user": "anonymous",
+      "progress": 0,
+      "config": {
+        "colWidth": 12,
+        "editorMode": "ace/mode/scala",
+        "fontSize": 9,
+        "results": {},
+        "enabled": true,
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        }
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1720498431456_114050546",
+      "id": "paragraph_1720498431456_114050546",
+      "dateCreated": "2024-07-09T04:13:51+0000",
+      "status": "FINISHED",
+      "focus": true,
+      "$$hashKey": "object:943",
+      "text": "val data2 = data.withColumn(\"Provincia\", trim(col(\"Provincia\"))).select(\"Provincia\").distinct",
+      "dateUpdated": "2024-07-09T04:17:07+0000",
+      "dateFinished": "2024-07-09T04:17:07+0000",
+      "dateStarted": "2024-07-09T04:17:07+0000",
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "\u001b[1m\u001b[34mdata2\u001b[0m: \u001b[1m\u001b[32morg.apache.spark.sql.Dataset[org.apache.spark.sql.Row]\u001b[0m = [Provincia: string]\n"
+          }
+        ]
+      }
+    },
+    {
+      "user": "anonymous",
+      "progress": 0,
+      "config": {
+        "colWidth": 12,
+        "editorMode": "ace/mode/scala",
+        "fontSize": 9,
+        "results": {},
+        "enabled": true,
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        }
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "runtimeInfos": {
+        "jobUrl": {
+          "propertyName": "jobUrl",
+          "label": "SPARK JOB",
+          "tooltip": "View in Spark web UI",
+          "group": "spark",
+          "values": [
+            {
+              "jobUrl": "http://10.0.5.2:4040/jobs/job?id=2",
+              "$$hashKey": "object:1352"
+            },
+            {
+              "jobUrl": "http://10.0.5.2:4040/jobs/job?id=3",
+              "$$hashKey": "object:1353"
+            }
+          ],
+          "interpreterSettingId": "spark"
+        }
+      },
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1720498598172_26799586",
+      "id": "paragraph_1720498598172_26799586",
+      "dateCreated": "2024-07-09T04:16:38+0000",
+      "status": "FINISHED",
+      "focus": true,
+      "$$hashKey": "object:1049",
+      "text": "data2.show",
+      "dateUpdated": "2024-07-09T04:17:30+0000",
+      "dateFinished": "2024-07-09T04:17:30+0000",
+      "dateStarted": "2024-07-09T04:17:30+0000",
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "+--------------------+\n|           Provincia|\n+--------------------+\n|               AZUAY|\n|SANTO DOMINGO DE ...|\n|              CARCHI|\n|                NAPO|\n|           GALÁPAGOS|\n|             BOLÍVAR|\n|              EL ORO|\n|         SANTA ELENA|\n|           SUCUMBÍOS|\n|           PICHINCHA|\n|             PASTAZA|\n|     MORONA SANTIAGO|\n|              MANABÍ|\n|            ORELLANA|\n|                LOJA|\n|          CHIMBORAZO|\n|          TUNGURAHUA|\n|              GUAYAS|\n|    ZAMORA CHINCHIPE|\n|            LOS RÍOS|\n+--------------------+\nonly showing top 20 rows\n\n"
+          }
+        ]
+      }
+    },
+    {
+      "user": "anonymous",
+      "progress": 0,
+      "config": {
+        "colWidth": 12,
+        "editorMode": "ace/mode/scala",
+        "fontSize": 9,
+        "results": {},
+        "enabled": true,
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        }
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "runtimeInfos": {
+        "jobUrl": {
+          "propertyName": "jobUrl",
+          "label": "SPARK JOB",
+          "tooltip": "View in Spark web UI",
+          "group": "spark",
+          "values": [
+            {
+              "jobUrl": "http://10.0.5.2:4040/jobs/job?id=4",
+              "$$hashKey": "object:1504"
+            },
+            {
+              "jobUrl": "http://10.0.5.2:4040/jobs/job?id=5",
+              "$$hashKey": "object:1505"
+            },
+            {
+              "jobUrl": "http://10.0.5.2:4040/jobs/job?id=6",
+              "$$hashKey": "object:1506"
+            }
+          ],
+          "interpreterSettingId": "spark"
+        }
+      },
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1720498638432_581814394",
+      "id": "paragraph_1720498638432_581814394",
+      "dateCreated": "2024-07-09T04:17:18+0000",
+      "status": "FINISHED",
+      "focus": true,
+      "$$hashKey": "object:1212",
+      "text": "data2.count",
+      "dateUpdated": "2024-07-09T04:17:48+0000",
+      "dateFinished": "2024-07-09T04:17:48+0000",
+      "dateStarted": "2024-07-09T04:17:48+0000",
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "\u001b[1m\u001b[34mres6\u001b[0m: \u001b[1m\u001b[32mLong\u001b[0m = 24\n"
+          }
+        ]
+      }
+    },
+    {
+      "user": "anonymous",
+      "progress": 0,
+      "config": {
+        "colWidth": 12,
+        "fontSize": 9,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/scala"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1720498668398_200357664",
+      "id": "paragraph_1720498668398_200357664",
+      "dateCreated": "2024-07-09T04:17:48+0000",
+      "status": "READY",
+      "focus": true,
+      "$$hashKey": "object:1377"
+    }
+  ],
+  "name": "AYUDA ME MATO",
+  "id": "2K3WUV2NA",
+  "defaultInterpreterGroup": "spark",
+  "version": "0.11.1",
+  "noteParams": {},
+  "noteForms": {},
+  "angularObjects": {},
+  "config": {
+    "isZeppelinNotebookCronEnable": false,
+    "looknfeel": "default",
+    "personalizedMode": "false"
+  },
+  "info": {},
+  "path": "/AYUDA ME MATO"
+}
